@@ -1,0 +1,47 @@
+<div class="button-row">
+    <button [routerLink]="['/users']" class="cta">User list</button>
+  </div>
+<div class="example-container mat-elevation-z8">
+
+      <div *ngIf="isLoadingResults"> loading </div>
+      
+      <form [formGroup]="userForm" (ngSubmit)="onFormSubmit(userForm.value)">
+          <h2>Add new user</h2>
+          <h5 *ngIf="success">New user has been added!</h5>
+          <label>
+              Name:
+              <input type="text" placeholder="user name" formControlName="name">
+              <div *ngIf="submitted && userForm.controls.name.errors" class="error">
+                <div *ngIf="userForm.controls.name.errors.required">Name is required</div>
+              </div>
+            </label>
+
+            <label>
+                Job:
+                <input type="text" placeholder="job" formControlName="job">
+                <div *ngIf="submitted && userForm.controls.job.errors" class="error">
+                  <div *ngIf="userForm.controls.job.errors.required">Job is required</div>
+                </div>
+              </label>
+            
+        <div class="button-row">
+          <button type="submit" class="cta">Add user</button>
+        </div>
+      </form>
+
+      <div *ngIf="success" class="results">
+          <strong>Name:</strong> 
+          <span>{{ newUser.name }}</span>
+        
+          <strong>Job:</strong> 
+          <span>{{ newUser.job }}</span>
+
+          <strong>ID:</strong> 
+          <span>{{ newUser.id }}</span>
+
+          <strong>Created At:</strong> 
+          <span>{{ newUser.createdAt }}</span>
+        </div>
+
+    
+  </div>

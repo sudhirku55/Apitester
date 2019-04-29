@@ -1,0 +1,20 @@
+<h1>Users</h1>
+<nav class="user-nav">
+    <button (click)="previousPage()" class="cta">Previous page</button>
+    <button id="next_page" (click)="nextPage()" class="cta">Next page</button>  
+    <button class="cta add-new" routerLink="/users/add-new">Add new user</button>
+</nav>
+
+<ul *ngIf="users">
+    <p>Current page: {{users.page}}/{{users.total_pages}}</p>
+  <li *ngFor="let user of users.data">
+    <img [src]="user.avatar">
+    <p>{{ user.first_name }} {{ user.last_name }}</p>
+    <a routerLink="/single-user/{{user.id}}">
+      <p class="badge">User Details</p>
+    </a>
+    <button class="delete cta" title="delete user" (click)="delete(user.id)">x</button>
+
+  </li>
+</ul>
+

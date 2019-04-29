@@ -1,0 +1,13 @@
+<button (click)="backClicked()" class="cta">Back to Users</button>
+
+
+<div *ngIf="user" class="products">
+  <h2>Details</h2>
+  <div><span>ID: </span>{{user.data.id}}</div>
+  <div><span>First Name: </span>{{user.data.first_name}}</div>
+  <div><span>Last Name: </span>{{user.data.last_name}}</div>
+  <div><img [src]="user.data.avatar" alt="User Avatar"></div>
+  <div>
+
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<section>
+  <h2>Login</h2>
+
+  <label>
+    Email: <input type="text" class="form-control" placeholder="Email" id="email" [(ngModel)]="email">
+  </label>
+
+  <label>
+    Password: <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="password">
+  </label>
+
+  <button type="submit" class="cta" (click)="tryLogin()">Login</button>
+</section>
